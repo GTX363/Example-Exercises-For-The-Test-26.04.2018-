@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+double power(double x, int n);
+double fun(double x, int n);
+int fact(int n);
+
+int main()
+{
+    int x, n;
+    cout << "Enter x:";
+    cin >> x;
+    cout << "Enter n:";
+    cin >> n;
+    cout << "S = " << fun(x,n) << endl;
+    return 0;
+}
+
+double power(double x, int n)
+{
+    if(n == 0)
+        return 1;
+    else return x*power(x, n-1);
+}
+
+double fun(double x, int n)
+{
+    double S = 1;
+    for(int i = 1 ; i <= n ; i++)
+    {
+        S+= power(x,n)/fact(i);
+    }
+    return S;
+}
+
+int fact(int n)
+{
+    if(n <= 1)
+        return 1;
+    else return n*fact(n-1);
+}
