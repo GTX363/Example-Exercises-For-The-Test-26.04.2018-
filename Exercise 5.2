@@ -1,0 +1,67 @@
+#include <iostream>
+
+using namespace std;
+
+class Figure
+{
+protected:
+    int height;
+    int width;
+public:
+    void setWidth(int a)
+    {
+        width = a;
+    }
+    int getWidth()
+    {
+        return width;
+    }
+    void setHeight(int a)
+    {
+        height = a;
+    }
+    int getHeight()
+    {
+        return height;
+    }
+};
+
+class Triangle: public Figure
+{
+public:
+    double Area()
+    {
+        return (height*width)/2;
+    }
+};
+
+class Rectangle: public Figure
+{
+public:
+    double Area()
+    {
+        return (height*width);
+    }
+};
+
+int main()
+{
+int Ta,Tb,Ra,Rb;
+Triangle B;
+Rectangle A;
+cout << "Rectangular's height: ";
+cin >> Ra;
+cout << "Rectangular's width: ";
+cin >> Rb;
+cout << "Triangle's height: ";
+cin >> Ta;
+cout << "Triangle's width: ";
+cin >> Tb;
+A.setHeight(Ra);
+A.setWidth(Rb);
+B.setHeight(Ta);
+B.setWidth(Tb);
+cout << "Rectangular's Area = " << A.Area() << endl;
+cout << "Triangle's Area = " << B.Area() << endl;
+    return 0;
+}
