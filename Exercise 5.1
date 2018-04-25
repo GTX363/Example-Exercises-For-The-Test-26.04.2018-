@@ -1,0 +1,59 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+class Point
+{
+private:
+    int x;
+    int y;
+public:
+    friend double dist(Point A, Point B);
+    void setX(int a)
+    {
+        x = a;
+    }
+    int getX()
+    {
+        return x;
+    }
+    void setY(int a)
+    {
+        y = a;
+    }
+    int getY()
+    {
+        return y;
+    }
+};
+
+double dist(Point A, Point B);
+
+int main()
+{
+int a,b,c,d;
+Point A;
+Point B;
+cout << "Point A's x: ";
+cin >> a;
+cout << "Point A's y: ";
+cin >> b;
+cout << "Point B's x: ";
+cin >> c;
+cout << "Point B's y: ";
+cin >> d;
+A.setX(a);
+A.setY(b);
+B.setX(c);
+B.setY(d);
+cout << "Distance between A and B: " << dist(A,B) << endl;
+    return 0;
+}
+
+double dist(Point A, Point B)
+{
+    double d;
+    d = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
+    return d;
+}
