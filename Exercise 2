@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int n;
+cout << "Insert n: ";
+cin >> n;
+int aray[n][n];
+for(int i = 0 ; i < n ; i++)
+for(int j = 0 ; j < n ; j++)
+{
+    cout << "Array[" << i << "][" << j << "] = ";
+    cin >> aray[i][j];
+}
+for(int i = 0 ; i < n ; i++)
+{
+    for(int j = 0 ; j < n ; j++)
+        cout << aray[i][j] << "  ";
+        cout << endl;
+}
+for(int i = 0 ; i < n ; i++)
+for(int j = 0 ; j < n ; j++)
+cout << "Array[" << i << "][" << j << "] = " << aray[i][j] << endl;
+int sum = 0;
+for(int i = 0 ; i < n ; i++)
+for(int j = 0 ; j < n ; j++)
+sum+= aray[i][j];
+cout << "Sum = " << sum << endl;
+float sumDiagonal = 0;
+float sumAboveDiagonal = 0;
+float sumUnderDiagonal = 0;
+for(int i = 0 ; i < n ; i++)
+for(int j = 0 ; j < n ; j++)
+{
+    if(i == j) sumDiagonal+= aray[i][j];
+    else if(i < j) sumAboveDiagonal += aray[i][j];
+    else sumUnderDiagonal+= aray[i][j];
+}
+cout << "Sum Diagonal = " << sumDiagonal << endl;
+cout << "Sum Above Diagonal = " << sumAboveDiagonal << endl;
+cout << "Sum Under Diagonal = " << sumUnderDiagonal << endl;
+cout << "Sum Above Diagonal / Sum Under Diagonal = " << sumAboveDiagonal << "/" << sumUnderDiagonal << " = " << sumAboveDiagonal/sumUnderDiagonal;
+    return 0;
+}
