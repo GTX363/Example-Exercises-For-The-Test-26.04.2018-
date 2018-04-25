@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int n;
+cout << "Insert the number of elements in the array: ";
+cin >> n;
+int aray[n];
+for(int i = 0 ; i < n ; i++)
+{
+    cout << "Array[" << i << "]= ";
+    cin >> aray[i];
+}
+cout << endl;
+for(int i = 0 ; i < n ; i++)
+{
+    cout << "Array[" << i << "]= " << aray[i] << endl;
+}
+double sum = 0;
+double even = 0;
+double odd = 0;
+double num35 = 0;
+double SumOfOddIndex = 0;
+int avgCounter = 0;
+for(int i = 0 ; i < n ; i++)
+{
+    sum+= aray[i];
+    avgCounter++;
+    if((aray[i] % 2) == 0) even+= aray[i];
+    if((aray[i] % 2) == 1) odd+= aray[i];      // needed later in the exercise
+    if((aray[i] % 3) == 0 && (aray[i] % 5) == 0) num35+= aray[i];
+    if((i % 2) == 1) SumOfOddIndex+= aray[i];
+}
+cout << "Sum = " << sum << endl;
+cout << "Sum of even numbers = " << even << endl;
+cout << "Sum of numbers divided by 3 and 5 = " << num35 << endl;
+cout << "Sum of numbers with odd index = " << SumOfOddIndex << endl;
+cout << "Average = " << double(sum/avgCounter) << endl;
+int m;
+int CountForM = 0;
+cout << "Insert the number you want to see how many times does it take place in the array: ";
+cin >> m;
+for(int i = 0 ; i < n ; i++)
+{
+  if(aray[i] == m) CountForM++;
+}
+cout << "The number " << m << " can be found " << CountForM << " time(s) in the array." << endl;
+float OddNumbersPercent = odd/sum;
+float EvenNumbersPercent = even/sum;
+cout << "Percentage of Even/Odd numbers: " << (even/sum)*100 << "%/" << (odd/sum)*100 << "%." << endl;
+int PositiveCounter = 0;
+int NegativeCounter = 0;
+for(int i = 0 ; i < n ; i++)
+{
+    if(aray[i] > 0) PositiveCounter++;
+    if(aray[i] < 0) NegativeCounter++;
+}
+cout << "Percentage of Positive/Negative numbers in the array: " << (PositiveCounter/n)*100 << "%/" << (NegativeCounter/n)*100 << "%." << endl;
+
+    return 0;
+}
