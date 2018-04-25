@@ -1,0 +1,109 @@
+#include <iostream>
+
+using namespace std;
+
+double Sum(int arr[],int n);
+double Even(int arr[],int n);
+double DivideBy3and5(int arr[],int n);
+double OddIndex(int arr[],int n);
+double Average(int arr[],int n);
+int FindMInTheArray(int arr[],int n, int m);
+void EvenOddPercent(int arr[],int n);
+void PositiveNegativePercent(int arr[],int n);
+
+int main()
+{
+int n, m;
+cout << "Insert the number of elements in the array: ";
+cin >> n;
+int aray[n];
+for(int i = 0 ; i < n ; i++)
+{
+    cout << "Array[" << i << "]= ";
+    cin >> aray[i];
+}
+cout << "Sum = " << Sum(aray,n) << endl;
+cout << "Sum of even numbers = " << Even(aray,n) << endl;
+cout << "Sum of numbers divided by 3 and 5 = " << DivideBy3and5(aray,n) << endl;
+cout << "Sum of numbers with odd index = " << OddIndex(aray,n) << endl;
+cout << "Average = " << Average(aray,n) << endl;
+cout << "Insert the number you want to see how many times does it take place in the array: ";
+cin >> m;
+cout << "The number " << m << " can be found " << FindMInTheArray(aray,n, m) << " time(s) in the array." << endl;
+EvenOddPercent(aray,n);
+PositiveNegativePercent(aray,n);
+    return 0;
+}
+
+double Sum(int arr[],int n)
+{
+    double sum = 0;
+    for(int i = 0 ; i < n ; i++) sum += arr[i];
+    return sum;
+}
+
+double Even(int arr[],int n)
+{
+    double sum = 0;
+    for(int i = 0 ; i < n ; i++) if(arr[i] % 2 == 0) sum += arr[i];
+    return sum;
+}
+
+double DivideBy3and5(int arr[],int n)
+{
+    double sum = 0;
+    for(int i = 0 ; i < n ; i++) if(arr[i] % 3 == 0 && arr[i] % 5 == 0) sum += arr[i];
+    return sum;
+}
+
+double OddIndex(int arr[],int n)
+{
+    double sum = 0;
+    for(int i = 0 ; i < n ; i++) if(i % 2 == 1) sum += arr[i];
+    return sum;
+}
+
+double Average(int arr[],int n)
+{
+    double sum = 0;
+    for(int i = 0 ; i < n ; i++) sum += arr[i];
+    return sum/n;
+}
+
+int FindMInTheArray(int arr[],int n, int m)
+{
+    int CountForM = 0;
+for(int i = 0 ; i < n ; i++)
+{
+  if(arr[i] == m) CountForM++;
+}
+return CountForM;
+}
+
+void EvenOddPercent(int arr[],int n)
+{
+    float odd = 0;
+    float even = 0;
+    float sum = 0;
+for(int i = 0 ; i < n ; i++)
+{
+if(arr[i] % 2 == 1) odd+= arr[i];
+if(arr[i] % 2 == 0) even+= arr[i];
+sum+= arr[i];
+}
+float OddNumbersPercent = odd/sum;
+float EvenNumbersPercent = even/sum;
+cout << "Percentage of Even/Odd numbers: " << (even/sum)*100 << "%/" << (odd/sum)*100 << "%." << endl;
+}
+
+void PositiveNegativePercent(int arr[],int n)
+{
+int PositiveCounter = 0;
+int NegativeCounter = 0;
+for(int i = 0 ; i < n ; i++)
+{
+    if(arr[i] > 0) PositiveCounter++;
+    if(arr[i] < 0) NegativeCounter++;
+}
+cout << "Percentage of Positive/Negative numbers in the array: " << (PositiveCounter/n)*100 << "%/" << (NegativeCounter/n)*100 << "%." << endl;
+}
